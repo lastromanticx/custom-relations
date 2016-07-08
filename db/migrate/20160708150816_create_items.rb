@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.text :content
+      t.boolean :shared
       t.integer :user_id
     end
   end
