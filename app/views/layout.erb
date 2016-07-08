@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Custom Relations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <% if !@error_message.nil? %>
+        <div class="alert alert-warning">
+          <%= @error_message %>
+        </div>
+      <% end %>
+      <%= yield %> 
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
