@@ -4,6 +4,7 @@ class CreateProperties < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :content
+      t.integer :item_id
     end
   end
 end

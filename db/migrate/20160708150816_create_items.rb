@@ -3,8 +3,8 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :name
       t.string :description
-      t.string :properties
       t.text :content
+      t.integer :user_id
     end
   end
 end
