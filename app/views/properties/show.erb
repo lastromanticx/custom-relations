@@ -2,7 +2,7 @@
   <div class="col-xl-12 text-center">
     <h3><%=@property.name%></h3>
     <br>
-    <p><%=@property.content%></p>
+    <p><%=nl2br(@property.content)%></p>
     <br>
     <p><a href="/items/<%=@property.item.id%>">Back</a></p>
   </div>

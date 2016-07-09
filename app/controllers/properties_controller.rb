@@ -1,18 +1,19 @@
 class PropertiesController < ApplicationController
   get '/properties/:id' do
-    redirect_if_not_logged_in
-
     @property = Property.find(params[:id])
-    if @property.item.share == "private" && @property.item.user != current_user
+    if is_logged_in? && (@property.item.share == "private" && !current_user.items.include?(@property.item))
       redirect '/users'
+    elsif @property.item.share == "private"
+      redirect '/'
+    else
+      erb :'/properties/show'
     end
-    
-    erb :'/properties/show'
   end
 
   get '/properties/:id/edit' do
     redirect_if_not_logged_in
   
+    @error_message = params[:error] 
     @property = Property.find(params[:id])
 
     if @property.item.share != "edit" && !current_user.items.include?(@property.item)
@@ -29,7 +30,7 @@ class PropertiesController < ApplicationController
       redirect "/properties/#{property.id}/edit?error=Please name the property."
     end
 
-    property.update(params[:property])
+    property.update(params["property"])
 
     item = property.item
     redirect "/items/#{item.id}/edit"
