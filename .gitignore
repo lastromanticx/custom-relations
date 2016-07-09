@@ -87,3 +87,8 @@ sftp-config.json
 # vim temporary files
 *.swp
 *.swo
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
