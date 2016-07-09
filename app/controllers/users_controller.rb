@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect "/users/#{user.username}"
     else
-      redirect '/login?error=We cannot find a match. Please check your username or password.'
+      redirect '/login?error=Could not log in. Please check your username or password.'
     end
   end
 
