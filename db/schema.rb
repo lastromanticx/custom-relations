@@ -11,24 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708151932) do
-
-  create_table "items", force: :cascade do |t|
-    t.string  "name"
-    t.string  "description"
-    t.string  "share"
-    t.integer "user_id"
-  end
-
-  create_table "properties", force: :cascade do |t|
-    t.string  "name"
-    t.string  "content"
-    t.integer "item_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
