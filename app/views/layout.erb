@@ -3,13 +3,15 @@
   <head>
     <title>Custom Relations</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<%= url('/css/style.css') %>">
   </head>
   <body>
     <div class="container">
       <%if is_logged_in?%>
         <nav>
-          <a href="/users/<%=current_user.username%>">Home</a>
+          <a href="/users">Home</a> |
+          <a href="/users/<%=current_user.username%>">My Page</a> |
+          <a href="/items/new">Create</a> |
           <a href="/logout">Logout</a>
         </nav>
       <%end%>
