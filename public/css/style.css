@@ -10,3 +10,9 @@ a:link, a:hover, a:active, a:visited {
 .form-label {
   font-weight: bold;
 }
+
+/*//////// USERS INDEX ///////*/
+
+.users-index-item-row {
+  font-size: 1.2em;
+}

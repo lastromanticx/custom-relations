@@ -5,9 +5,9 @@
     <%@user.items.each do |item|
         case item.share
         when *['edit','view']%>
-          <h5><a href="/items/show/<%=item.id%>"><%=item.name%></a></h5><p><%=item.description%></p>
+          <h5><a href="/items/<%=item.id%>"><%=item.name%></a></h5><p><%=item.description%></p>
       <%else%>
-          <h5><a href="/items/show/<%=item.id%>"><%=item.name%></a></h5><p><%=item.description%></p> if is_logged_in?
+          <h5><a href="/items/<%=item.id%>"><%=item.name%></a></h5><p><%=item.description%></p> if is_logged_in?
       <%end%>
        <hr>
     <%end%>

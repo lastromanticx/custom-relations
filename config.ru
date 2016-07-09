@@ -8,4 +8,5 @@ use Rack::MethodOverride
 
 use UsersController
 use ItemsController
+use PropertiesController
 run ApplicationController

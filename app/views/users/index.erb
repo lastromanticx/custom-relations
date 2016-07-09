@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xl-12">
+    <h2>We Are</h2>
+    <br>
+    <%User.all.each do |user|%>
+      <h3><a href="/users/<%=user.username%>"><%=user.username%></a></h3>
+      <%user.items.each do |item|%>
+        <%if item.share != "private"%>
+          <p class="users-index-item-row"><a href="/items/<%=item.id%>"><%=item.name%></a>, <%=item.description%></p>
+        <%end%>
+      <%end%>
+      <hr>
+    <%end%>
+  </div>
+</div>
