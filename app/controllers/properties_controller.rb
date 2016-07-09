@@ -9,4 +9,29 @@ class PropertiesController < ApplicationController
     
     erb :'/properties/show'
   end
+
+  get '/properties/:id/edit' do
+    redirect_if_not_logged_in
+  
+    @property = Property.find(params[:id])
+
+    if @property.item.share != "edit" && !current_user.items.include?(@property.item)
+      redirect '/users'
+    end
+
+    erb :'/properties/edit'
+  end
+
+  patch '/properties/:id' do
+    property = Property.find(params[:id])
+
+    if params[:property][:name].match(/^\s*$/)
+      redirect "/properties/#{property.id}/edit?error=Please name the property."
+    end
+
+    property.update(params[:property])
+
+    @item = property.item
+    redirect "/items/#{@item.id}/edit"
+  end
 end

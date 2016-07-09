@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xl-12">
+    <h3>Edit Property</h3>
+    <form method="post" action="/properties/<%=@property.id%>">
+      <input type="hidden" name="_method" value="patch">
+      <p>
+        <span class="form-label">Name</span>:<br>
+        <input type="text" name="property[name]" value="<%=@property.name%>"></p>
+      <p>
+        <span class="form-label">Content</span>:<br>
+        <textarea rows="10" cols="50" name="property[content]"></textarea>
+      </p>
+      <input type="submit" value="Save">
+    </form>
+  </div>
+</div>

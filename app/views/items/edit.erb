@@ -1,8 +1,12 @@
 <div class="row">
   <div class="col-xl-12">
-    <h3>Edit</h3>
+    <h3>Edit Item</h3>
     <form method="post" action="/items/<%=@item.id%>">
       <input type="hidden" name="_method" value="patch">
+      <p>
+        <span class="form-label">Creator</span><br>
+        <%=@item.user.username%>
+      </p>
       <p>
         <span class="form-label">Name</span>:<br>
         <input type="text" name="item[name]" value="<%=@item.name%>"></p>
