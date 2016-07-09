@@ -14,7 +14,8 @@ class UsersController < ApplicationController
       redirect "/signup?error=#{CGI.escape("Please use between 4 and 16 alphanumeric characters and/or these symbols in your password, !@#$%&*")}"
     else
       @user = User.create(params[:user])
-      erb :'/users/show'
+      session[:user_id] = @user.id
+      redirect "/users/#{@user.username}"
     end
   end
 
@@ -24,17 +25,18 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(username: params[:user][:username])
+    if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect "/users/#{user.slug}"
+      redirect "/users/#{user.username}"
     else
       redirect '/login?error=We cannot find a match. Please check your username or password.'
     end
   end
 
   get '/users/:username' do
-    user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username])
+    erb :'/users/show'
   end
 
   get '/logout' do

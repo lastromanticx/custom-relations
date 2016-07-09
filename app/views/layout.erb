@@ -7,6 +7,12 @@
   </head>
   <body>
     <div class="container">
+      <%if is_logged_in?%>
+        <nav>
+          <a href="/users/<%=current_user.username%>">Home</a>
+          <a href="/logout">Logout</a>
+        </nav>
+      <%end%>
       <% if !@error_message.nil? %>
         <div class="alert alert-warning">
           <%= @error_message %>

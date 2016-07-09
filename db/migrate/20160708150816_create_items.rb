@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :name
       t.string :description
-      t.boolean :shared
+      t.string :share
       t.integer :user_id
     end
   end

@@ -15,12 +15,12 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def redirect_if_not_logged_in
-      if !logged_in?
+      if !is_logged_in?
         redirect "/login?error=Please login or signup."
       end
     end
 
-    def logged_in?
+    def is_logged_in?
       !!session[:user_id]
     end
 
