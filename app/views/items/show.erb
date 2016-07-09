@@ -10,8 +10,16 @@
     </div>
     <div class="items-show"> 
       <%if @item.share == "edit" || current_user.items.include?(@item)%>
-        <a href="/items/<%=@item.id%>/edit">Edit</a>
+        <button type="button" onclick="toEditPage();">Edit</button>
       <%end%>
     </div>
   </div>
 </div>
+
+<%if @item.share == "edit" || current_user.items.include?(@item)%>
+  <script>
+    function toEditPage(){
+      window.location.assign("/items/<%=@item.id%>/edit")
+    }
+  </script>
+<%end%>
