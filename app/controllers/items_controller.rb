@@ -47,9 +47,25 @@ class ItemsController < ApplicationController
     @item.update(params[:item])
 
     if !params[:property][:name].match(/^\s*$/)
-      item.properties << Property.create(params[:property])
+      @item.properties << Property.create(params[:property])
     end
 
     erb :'/items/show'
+  end
+
+  get '/items/:id/delete' do 
+   redirect_if_not_logged_in  
+              
+    item = Item.find(params[:id])
+
+    if item.share != "edit" && !current_user.items.include?(item)
+      redirect '/users'        
+    end
+                
+    user = item.user
+    item.properties.each(&:destroy)
+    item.destroy  
+                        
+    redirect "/users/#{user.username}"
   end
 end

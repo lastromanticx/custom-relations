@@ -11,6 +11,19 @@ a:link, a:hover, a:active, a:visited {
   font-weight: bold;
 }
 
+.property-edit-buttons-div {
+  width: 360px;
+}
+
+.items-edit-buttons-div {
+  width: 360px;
+}
+
+.property-delete-button, .item-delete-button {
+  float: right;
+}
+
+
 /*//////// USERS INDEX ///////*/
 
 .users-index-item {

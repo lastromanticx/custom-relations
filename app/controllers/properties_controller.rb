@@ -31,7 +31,22 @@ class PropertiesController < ApplicationController
 
     property.update(params[:property])
 
-    @item = property.item
-    redirect "/items/#{@item.id}/edit"
+    item = property.item
+    redirect "/items/#{item.id}/edit"
+  end
+
+  get '/properties/:id/delete' do
+    redirect_if_not_logged_in
+
+    property = Property.find(params[:id])
+
+    if property.item.share != "edit" && !current_user.items.include?(property.item)
+      redirect '/users'
+    end
+    
+    item = property.item
+    property.destroy
+
+    redirect "/items/#{item.id}/edit"
   end
 end
