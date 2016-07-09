@@ -1,14 +1,17 @@
 <div class="row">
   <div class="col-xl-12 text-center">
-    <h3><%=@item.name%></h3>
-    <p><%=@item.description%></p>
-   <br>
-    <%@item.properties.all.each do |property|%>
-      <h5><a href="/properties/<%=property.id%>"><%=property.name%></a></h5>
-    <%end%>
-    <br><br> 
-    <%if @item.share == "edit" || current_user.items.include?(@item)%>
-      <a href="/items/<%=@item.id%>/edit">Edit</a>
-    <%end%>
+    <div class="items-show">
+      <h3><%=@item.name%></h3>
+      <p><%=@item.description%></p>
+      <br>
+      <%@item.properties.all.each do |property|%>
+        <h5><a href="/properties/<%=property.id%>"><%=property.name%></a></h5>
+      <%end%>
+    </div>
+    <div class="items-show"> 
+      <%if @item.share == "edit" || current_user.items.include?(@item)%>
+        <a href="/items/<%=@item.id%>/edit">Edit</a>
+      <%end%>
+    </div>
   </div>
 </div>
