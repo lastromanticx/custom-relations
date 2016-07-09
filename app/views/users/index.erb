@@ -11,7 +11,7 @@
             <%="shared" if item.share == "edit"%>
           </div>
           <div class="users-index-item">
-            <p><a href="/items/<%=item.id%>"><%=item.name%></a><%= ", " + item.description if !item.description.match(/^\s*$/)%></p>
+            <p><a href="/items/<%=item.id%>"><%=item.name%></a>, <%=item.description%></p>
           </div>
           </div>
         <%end%>
