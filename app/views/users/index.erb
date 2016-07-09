@@ -6,7 +6,14 @@
       <h3><a href="/users/<%=user.username%>"><%=user.username%></a></h3>
       <%user.items.each do |item|%>
         <%if item.share != "private"%>
-          <p class="users-index-item-row"><a href="/items/<%=item.id%>"><%=item.name%></a>, <%=item.description%></p>
+          <div>
+          <div class="users-index-flag">
+            <%="shared" if item.share == "edit"%>
+          </div>
+          <div class="users-index-item">
+            <p><a href="/items/<%=item.id%>"><%=item.name%></a>, <%=item.description%></p>
+          </div>
+          </div>
         <%end%>
       <%end%>
       <hr>

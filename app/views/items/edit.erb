@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-xl-12">
+    <h3>Edit</h3>
+    <form method="post" action="/items/<%=@item.id%>">
+      <input type="hidden" name="_method" value="patch">
+      <p>
+        <span class="form-label">Name</span>:<br>
+        <input type="text" name="item[name]" value="<%=@item.name%>"></p>
+      <p>
+        <span class="form-label">Description</span>:<br>
+        <textarea name="item[description]"><%=@item.description%></textarea>
+      </p>
+      <%if current_user.items.include?(@item)%>
+        <p>
+          <span class="form-label">Sharing:</span><br>
+          <input type="radio" name="item[share]" value="view" <%="checked" if @item.share=="view"%>> View  
+          <input type="radio" name="item[share]" value="edit" <%="checked" if @item.share=="edit"%>> Edit 
+          <input type="radio" name="item[share]" value="private" <%="checked" if @item.share=="private"%>> Private
+        </p>
+      <%end%>
+     <br>
+      <h4>Add Property</h4>
+      <p>
+        <span class="form-label">Name</span>:<br>
+        <input type="text" name="property[name]">
+      </p>
+      <p>
+        <span class="form-label">Content</span>:<br>
+        <textarea rows="10" cols="50" name="property[content]"></textarea>
+      </p>
+
+      <br>
+      <h4>Properties</h4>
+      <%@item.properties.all.each do |property|%>
+        <h5><a href="/properties/<%=property.id%>/edit"><%=property.name%></a></h5>
+      <%end%>
+
+      <br>    
+      <input type="submit" value="Save">
+    </form>
+  </div>
+</div>

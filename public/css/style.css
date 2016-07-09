@@ -13,8 +13,15 @@ a:link, a:hover, a:active, a:visited {
 
 /*//////// USERS INDEX ///////*/
 
-.users-index-item-row {
+.users-index-item {
+  display: inline-block;
   font-size: 1.2em;
+}
+
+.users-index-flag {
+  display: inline-block;
+  color: #0B0;
+  width: 60px;
 }
 
 /*//////// ITEMS SHOW ///////*/

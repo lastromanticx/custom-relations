@@ -29,4 +29,27 @@ class ItemsController < ApplicationController
       erb :'/items/show'
     end
   end
+
+  get '/items/:id/edit' do
+    redirect_if_not_logged_in
+
+    @item = Item.find(params[:id])
+
+    if @item.share != "edit" && !current_user.items.include?(@item)
+      redirect "/items/#{params[:id]}"
+    end
+
+    erb :'/items/edit'
+  end
+
+  patch '/items/:id' do
+    @item = Item.find(params[:id])
+    @item.update(params[:item])
+
+    if !params[:property][:name].match(/^\s*$/)
+      item.properties << Property.create(params[:property])
+    end
+
+    erb :'/items/show'
+  end
 end

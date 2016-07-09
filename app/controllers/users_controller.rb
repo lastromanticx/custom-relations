@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:user][:username])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect "/users/#{user.username}"
+      redirect "/users"
     else
       redirect '/login?error=Could not log in. Please check your username or password.'
     end
