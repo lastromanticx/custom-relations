@@ -39,14 +39,9 @@ a:link, a:hover, a:active, a:visited {
 
 /*//////// ITEMS SHOW ///////*/
 
-.items-show {
+.items-show{
   display: inline-block;
   margin-right: 100px;
   height: 100%;
   vertical-align: middle;
-}
-
-.items-show-creator {
-  color: #555;
-  font-size: 0.9em;
 }
