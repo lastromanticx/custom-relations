@@ -20,11 +20,11 @@ class ItemsController < ApplicationController
   end
 
   get '/items/:id' do
-    redirect_if_not_logged_in
-    
     @item = Item.find(params[:id])
-    if @item.share == "private" && !current_user.items.include?(@item)
-      redirect '/users'
+    if is_logged_in? && (@item.share == "private" && !current_user.items.include?(@item))
+        redirect '/users'
+    elsif @item.share == "private"
+      redirect '/'
     else
       erb :'/items/show'
     end
