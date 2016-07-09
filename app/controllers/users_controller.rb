@@ -10,8 +10,8 @@ class UsersController < ApplicationController
       redirect '/signup?error=Sorry, that username is taken.'
     elsif !User.validate_username(params[:user][:username])
       redirect '/signup?error=Please use up to 16 alphanumeric characters for the username.'
-    elseif !User.validate_password(params[:user][:password])
-      redirect '/signup?error="Please use up to 16 alphanumeric characters and/or these symbols in your password, !@#$%&*"'
+    elsif !User.validate_password(params[:user][:password])
+      redirect "/signup?error=#{CGI.escape("Please use between 4 and 16 alphanumeric characters and/or these symbols in your password, !@#$%&*")}"
     else
       @user = User.create(params[:user])
       erb :'/users/show'
