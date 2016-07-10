@@ -5,10 +5,10 @@
     <%@user.items.each do |item|
         case item.share
         when *['edit','view']%>
-          <h5><a href="/items/<%=item.id%>"><%=item.name%></a></h5><p><%=item.description%></p>
+          <h4><a href="/items/<%=item.id%>"><%=item.name%></a></h4><p><%=item.description%></p>
       <%else%>
           <%if current_user.items.include?(item)%>
-            <h5><a href="/items/<%=item.id%>"><%=item.name%></a></h5><p><%=item.description%></p>
+            <h4><a href="/items/<%=item.id%>"><%=item.name%></a></h4><p><%=item.description%></p>
           <%end%>
       <%end%>
        <hr>

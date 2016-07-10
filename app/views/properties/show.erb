@@ -3,5 +3,7 @@
     <h3><%=@property.name%></h3>
     <br>
     <p><%=nl2br(@property.content)%></p>
+    <br>
+    <p class="created-by">Created by <%=@property.item.user.username%></p>
   </div>
 </div>

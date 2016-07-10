@@ -45,3 +45,8 @@ a:link, a:hover, a:active, a:visited {
   height: 100%;
   vertical-align: middle;
 }
+
+.created-by {
+  color: #555;
+  font-size: 0.9em
+}

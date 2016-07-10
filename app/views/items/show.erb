@@ -1,12 +1,15 @@
 <div class="row">
   <div class="col-xl-12 text-center">
     <div class="items-show">
-      <h3><%=@item.name%></h3>
+      <h2><%=@item.name%></h2>
       <p><%=nl2br(@item.description)%></p>
       <br>
       <%@item.properties.all.each do |property|%>
-        <h5><a href="/properties/<%=property.id%>"><%=property.name%></a></h5>
+        <h4><a href="/properties/<%=property.id%>"><%=property.name%></a></h4>
       <%end%>
+
+      <br>
+      <p class="created-by">Created by <%=@item.user.username%></p>
     </div>
     <div class="items-show"> 
       <%if is_logged_in? && (@item.share == "edit" || current_user.items.include?(@item))%>

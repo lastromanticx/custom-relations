@@ -1,10 +1,12 @@
 class PropertiesController < ApplicationController
   get '/properties/:id' do
     @property = Property.find(params[:id])
-    if is_logged_in? && (@property.item.share == "private" && !current_user.items.include?(@property.item))
-      redirect '/users'
-    elsif @property.item.share == "private"
-      redirect '/'
+    if @property.item.share == "private"
+      if is_logged_in? && current_user.items.include?(@property.item)
+        erb :'/properties/show'
+      else
+        redirect '/'
+      end
     else
       erb :'/properties/show'
     end
