@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   get '/items/new' do
     redirect_if_not_logged_in
+    @error_message = params[:error]
     erb :'/items/new'
   end
 
