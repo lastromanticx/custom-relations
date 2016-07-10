@@ -8,9 +8,9 @@ The 'Home' link ('/users' route) lists the current We Are users and items they h
 'My Page' ('/users/username') will display the current user's items made available for editing.
 Individual items and properties are routed via '/items/item_id' and '/properties/property_id'
 
-Have fun!
-
-
 Install: the app is a complete ruby directory. You can run it locally using the 'shotgun' gem, for example, or deploy it to a ruby hosting environment.
 
 License (MIT): https://github.com/lastromanticx/we-are/blob/master/LICENSE
+
+
+Have fun!
