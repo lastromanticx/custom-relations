@@ -1,6 +1,6 @@
 # We Are
 
-We are is a Ruby/Sinatra-based web application where users can login, create and share items with properties: make a blog, make a list, make a virtual wardrobe!
+We are is a Ruby/Sinatra-based web application where users can login, create and share items with properties: make a blog, make a list, make a virtual flower stand!
 
 Sign up and click the create button to make a new item. Set sharing to 'edit' to make your item available for edit by the We Are community, or set to 'view' to make it available to the public at large.
 
