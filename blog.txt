@@ -1,0 +1,23 @@
+The We Are Ruby/Sinatra Application
+
+
+The We Are Ruby application is a new platform where people can sign up, create and share. Users can set 'view', 'edit' or 'private' permissions on items they create. 'Edit' allows anyone in the We Are community to collaborate on the resource and 'view' makes the item open to the public at large (this blog post is one such example).
+
+We Are uses Sinatra RESTful routing, bcrypt password hashing and authentication, and ActiveRecord database and model correlation. Requests for routes are handled by three separate controllers, one for each model: User, Item, and Property; which determine the appropriate view based on the share setting and authentication.
+
+The signup form relies on password and username validation by regex, defined as User class methods. Additionally, there are checks for empty name fields for item and property creation. 
+
+Users can have many Items, which in turn can have many Properties. Generalizing Items to any text-based ideas allows the We Are community to be flexible in their creations. So an Item could be labeled a "Blog," for example and include different "posts" as properties. Or an Item can be named a "Virtual Shoe Wardrobe" and include references to shoes as its properties.
+
+The main /users index page lists users and their non-private items to the whole We Are community. Items marked "shared" in the list may be edited by anyone who's logged in.
+
+Creating the Application
+
+
+I wanted to make more generalized user functionality, where the type of items created, although text-based, would be up to the user. This is achieved by individually naming items and their properties, which then appear in community contributions.
+
+I also wanted to allow sharing, both collaboration on items as well as a choice to make the view available to the public, which is achieved via the 'share' and permission settings.
+
+Although formulating in my mind the basic concept, the task of actually coding the details - file structure, route and view interactions, and getting a more or less workable view took quite a bit more effort and juggling than I expected. It seemed an enjoyable, organic process, where coding each idea led to other ideas about another view or controller action that may be needed, as well as possibly a change in a db migration. 
+
+I hope you have enjoyed glancing or playing around with the app, and if you haven't already, what are you waiting for? Join today and start something new! 
