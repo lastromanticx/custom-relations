@@ -5,13 +5,9 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    existing = User.find_by(username: params[:user][:username])
-    if existing
-      redirect '/signup?error=Sorry, that username is taken.'
-    elsif !User.validate_username(params[:user][:username])
-      redirect '/signup?error=Please use up to 16 alphanumeric characters for the username.'
-    elsif !User.validate_password(params[:user][:password])
-      redirect "/signup?error=#{CGI.escape("Please use between 4 and 16 alphanumeric characters and/or these symbols in your password, !@#$%&*")}"
+    error_message = User.validate(params[:user][:username],params[:user][:password])
+    if error_message
+      redirect "/signup?error=#{error_message}"
     else
       @user = User.create(params[:user])
       session[:user_id] = @user.id

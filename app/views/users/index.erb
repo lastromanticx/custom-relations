@@ -4,17 +4,15 @@
     <br>
     <%@users.each do |user|%>
       <h3><a href="/users/<%=user.username%>"><%=user.username%></a></h3>
-      <%user.items.each do |item|%>
-        <%if item.share != "private"%>
-          <div>
-          <div class="users-index-flag">
-            <%="shared" if item.share == "edit"%>
-          </div>
-          <div class="users-index-item">
-            <p><a href="/items/<%=item.id%>"><%=item.name%></a><%=", " + item.description if !item.description.match(/^\s*$/)%></p>
-          </div>
-          </div>
-        <%end%>
+      <%user.viewable_items.each do |item|%>
+        <div>
+        <div class="users-index-flag">
+          <%="shared" if item.share == "edit"%>
+        </div>
+        <div class="users-index-item">
+          <p><a href="/items/<%=item.id%>"><%=item.name%></a><%=", " + item.description if !item.description.match(/^\s*$/)%></p>
+        </div>
+        </div>
       <%end%>
       <hr>
     <%end%>
